@@ -4,6 +4,8 @@ FROM ghcr.io/linuxserver/baseimage-kasmvnc:debianbookworm
 ENV TITLE=Wechat
 
 RUN \
+  echo "**** add icon ****" && \
+  wget https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico -O /kclient/public/favicon.ico && \
   echo "**** install packages ****" && \
   apt-get update && \
   apt-get install -y --no-install-recommends wget libatk1.0-0 libatk-bridge2.0-0 libatomic1 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-render-util0 libxcb-keysyms1 desktop-file-utils fonts-noto-cjk-extra && \
