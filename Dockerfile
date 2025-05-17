@@ -5,11 +5,11 @@ ENV TITLE=Wechat
 
 RUN \
   echo "**** add icon ****" && \
-  wget https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico -O /kclient/public/favicon.ico && \
+  curl -o /kclient/public/favicon.ico https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico && \
   echo "**** install packages ****" && \
   apt-get update && \
   apt-get install -y --no-install-recommends wget libatk1.0-0 libatk-bridge2.0-0 libatomic1 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-render-util0 libxcb-keysyms1 desktop-file-utils fonts-noto-cjk-extra && \
-  wget https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb -O /tmp/wechat.deb && \
+  curl -o /tmp/wechat.deb https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb && \
   apt-get install -y /tmp/wechat.deb && \
   fc-cache -fv && \
   echo "**** cleanup ****" && \
