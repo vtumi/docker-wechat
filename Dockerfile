@@ -12,6 +12,7 @@ RUN \
   curl -o /tmp/wechat.deb https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb && \
   apt-get install -y /tmp/wechat.deb && \
   fc-cache -fv && \
+  sed -i "s/UI.initSetting('enable_ime', false)/UI.initSetting('enable_ime', true)/" /usr/local/share/kasmvnc/www/dist/main.bundle.js
   echo "**** cleanup ****" && \
   apt-get autoclean && \
   rm -rf \
